@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+
+  /* PRIMITIVES */
+  --color-uta-blue-050: #EEF4FA;
+  --color-uta-blue-100: #DBE9F4;
+  --color-uta-blue-200: #C7DDEE;
+  --color-uta-blue-300: #B1D0E7;
+  --color-uta-blue-400: #6CA6D2;
+  --color-uta-blue-500: #3484C1;
+  --color-uta-blue-default: #0064B1;
+  --color-uta-blue-700: #00477E;
+  --color-uta-blue-800: #002847;
+  --color-uta-blue-900: #001B30;
+  --color-uta-blue-950: #00111E;
+  --color-uta-blue-010: #F9FAFB;
+
+  --color-grayscale-white: #FFFFFF;
+  --color-grayscale-100: #E6E6E6;
+  --color-grayscale-200: #CCCCCC;
+  --color-grayscale-600: #666666;
+  --color-grayscale-900: #1A1A1A;
+
+  --color-success-default: #3BB100;
+  --color-success-050: #F2FAEE;
+  --color-error-default: #FF411B;
+  --color-error-050: #FEECE8;
+  --color-warning-default: #F5C125;
+
+  /* SEMANTIC ALIASES */
+  --color-brand-primary: var(--color-uta-blue-default);
+  --color-brand-primary-hover: var(--color-uta-blue-700);
+  --color-brand-primary-subtle: var(--color-uta-blue-050);
+  --color-brand-primary-on-color: var(--color-grayscale-white);
+
+  --color-bg-default: var(--color-grayscale-white);
+  --color-bg-subtle: var(--color-uta-blue-010);
+  --color-bg-card: var(--color-grayscale-white);
+  --color-bg-overlay: var(--color-grayscale-white);
+
+  --color-text-primary: var(--color-grayscale-900);
+  --color-text-secondary: var(--color-grayscale-600);
+  --color-text-brand: var(--color-uta-blue-500);
+
+  --color-status-success: var(--color-success-default);
+  --color-status-success-bg: var(--color-success-050);
+  --color-status-error: var(--color-error-default);
+  --color-status-error-bg: var(--color-error-050);
+  --color-status-warning: var(--color-warning-default);
+
+  --color-border-default: var(--color-grayscale-200);
+  --color-border-muted: var(--color-grayscale-100);
+  --color-border-active: var(--color-uta-blue-default);
+
+  /* SPACING & RADIUS */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-full: 9999px;
+
+  /* TYPOGRAPHY */
+  --font-sans: "Helvetica", "Arial", sans-serif;
+}
