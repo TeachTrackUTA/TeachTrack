@@ -10,7 +10,10 @@ export default function SurveyLayout ({ sidebar, children }: Props ) {
                 {sidebar}
             </aside>
             <main className="flex-1 overflow-y-auto bg-[var(--color-bg-subtle)]">
-                {children}
+                <div className="flex min-h-full items-center justify-center p-12">
+                    {children}
+                </div>
+                
             </main>
         </div>
     );
