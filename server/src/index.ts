@@ -2,8 +2,11 @@
 
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';  //located at server/src/db/index.ts
 
-  
+dotenv.config();
+
+import './db';   //triggers the connection test when started up
 
 
 const app = express();
@@ -11,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 //middleware...
 app.use(cors({
-    origin: 'http://localhost:5173'      //got from our React frontend
+    origin: process.env.CLIENT_URL || 'http://localhost:5173'      //got from our React frontend: this is the link to check webpage
 }));
 
 app.use (express.json());               //allows Express to read JSON requests

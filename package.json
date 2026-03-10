@@ -13,6 +13,11 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "concurrently": "^9.2.1"
+        "concurrently": "^9.2.1",
+        "cors": "^2.8.6",
+        "pg": "^8.20.0"
+    },
+    "devDependencies": {
+        "@types/pg": "^8.18.0"
     }
 }
