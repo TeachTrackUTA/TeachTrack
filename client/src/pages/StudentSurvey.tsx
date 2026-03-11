@@ -1,6 +1,6 @@
-import SurveyLayout from "../components/survey/layout/SurveyLayout"
-import SurveySidebar from "../components/survey/layout/SurveySidebar"
-import SurveyIntroSidebarContent from "../components/survey/steps/SurveyIntroSideBarContent";
+import SurveyLayout from "../components/survey/SurveyLayout"
+import SurveySidebar from "../components/survey/SurveySidebar"
+import SurveyIntroSidebarContent from "../components/survey/SurveyIntroSideBarContent";
 import SurveyIntroCard from "../components/survey/SurveyIntroCard";
 
 import { useState } from 'react';

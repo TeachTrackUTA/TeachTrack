@@ -1,4 +1,4 @@
-import Breadcrumb from '../../ui/Breadcrumb';
+import Breadcrumb from '../ui/Breadcrumb';
 import { HelpCircle } from 'lucide-react';
 
 interface Props {
