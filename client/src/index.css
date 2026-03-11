@@ -19,6 +19,7 @@
   --color-grayscale-white: #FFFFFF;
   --color-grayscale-100: #E6E6E6;
   --color-grayscale-200: #CCCCCC;
+  --color-grayscale-400: #999999;
   --color-grayscale-600: #666666;
   --color-grayscale-900: #1A1A1A;
 
@@ -40,7 +41,7 @@
   --color-bg-overlay: var(--color-grayscale-white);
 
   --color-text-primary: var(--color-grayscale-900);
-  --color-text-secondary: var(--color-grayscale-600);
+  --color-text-secondary: var(--color-grayscale-400);
   --color-text-brand: var(--color-uta-blue-500);
 
   --color-status-success: var(--color-success-default);
@@ -49,8 +50,8 @@
   --color-status-error-bg: var(--color-error-050);
   --color-status-warning: var(--color-warning-default);
 
-  --color-border-default: var(--color-grayscale-200);
-  --color-border-muted: var(--color-grayscale-100);
+  --color-border-default: var(--color-grayscale-100);
+  --color-border-muted: var(--color-grayscale-050);
   --color-border-active: var(--color-uta-blue-default);
 
   /* SPACING & RADIUS */
@@ -67,4 +68,10 @@
 
   /* TYPOGRAPHY */
   --font-sans: "Helvetica", "Arial", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
 }
