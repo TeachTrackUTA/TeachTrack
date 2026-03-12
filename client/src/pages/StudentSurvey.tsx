@@ -5,6 +5,7 @@ import SurveySidebarContent from "../components/survey/SurveySidebarContent";
 import SurveyIntroCard from "../components/survey/SurveyIntroCard";
 import SurveyCalibration from "../components/survey/SurveyCalibration";
 import SurveyQuestion from "../components/survey/SurveyQuestion";
+import SurveyTopicConfidence from "../components/survey/SurveyTopicConfidence";
 import { SLO_DATA, COURSE_DATA, TOPIC_DATA, STUDENT_DATA } from "../data/surveyData";
 
 import type { Step } from "../types/survey";
@@ -25,7 +26,7 @@ const STEPS: { key: Step; label: string }[] = [
 
 
 export default function StudentSurvey() {
-    const [currentStep, setCurrentStep] = useState<Step>("intro");
+    const [currentStep, setCurrentStep] = useState<Step>("topic");
     const sloKeys = ["slo-1", "slo-2", "slo-3", "slo-4"] as const;
     const sloIndex = sloKeys.indexOf(currentStep as typeof sloKeys[number]);
     const currentSLO = sloIndex >= 0 ? SLO_DATA[sloIndex] : null;
@@ -48,7 +49,7 @@ export default function StudentSurvey() {
         "slo-2": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("slo-3")} onPrev={() => setCurrentStep("slo-1")} /> : null,
         "slo-3": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("slo-4")} onPrev={() => setCurrentStep("slo-2")} /> : null,
         "slo-4": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("topic")} onPrev={() => setCurrentStep("slo-3")} /> : null,
-        "topic": <div>Coming Soon</div>,
+        "topic": <SurveyTopicConfidence onNext={ () => setCurrentStep("reflection")}/>,
         "reflection": <div>Coming Soon</div>,
     }[currentStep];
 

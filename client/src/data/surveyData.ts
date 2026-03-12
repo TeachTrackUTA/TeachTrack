@@ -48,19 +48,6 @@ export const SLO_DATA: SLO[] = [
         frequencyQuestion: "How often did course activities require you to design a program from scratch (not just modify existing code)?",
         frequencyOptions: ["Never", "Rarely (1-2 times)", "Sometimes (3-5 times)", "Often (6-10 times)", "Very Often (11+ times)"],
         openEndedPrompt: "Describe a specific assignment or moment where you felt you truly understood structured programming — or where you struggled most.",
-        quickCheck: {
-            code: `int x = 5;\nint y = 3;\nfor (int i = 0; i < 3; i++)\n{\n    x = x + y;\n    y = y - 1;\n}`,
-            language: "c",
-            question: "What is the value of x after the loop completes?",
-            scratchPad: true,
-            options: [
-                { label: "A", value: "11" },
-                { label: "B", value: "14" },
-                { label: "C", value: "17" },
-                { label: "D", value: "20" },
-            ],
-            answer: "B",
-        },
     },
     {
         id: 2,
