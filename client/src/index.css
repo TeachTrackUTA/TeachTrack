@@ -40,6 +40,7 @@
   --color-bg-subtle: var(--color-uta-blue-010);
   --color-bg-card: var(--color-grayscale-white);
   --color-bg-overlay: var(--color-grayscale-white);
+  --color-bg-selected: var(--color-uta-blue-default);
 
   --color-text-primary: var(--color-grayscale-900);
   --color-text-secondary: var(--color-grayscale-400);
