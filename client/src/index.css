@@ -28,6 +28,7 @@
   --color-error-default: #FF411B;
   --color-error-050: #FEECE8;
   --color-warning-default: #F5C125;
+  --color-warning-050: #FEF9E8;
 
   /* SEMANTIC ALIASES */
   --color-brand-primary: var(--color-uta-blue-default);
@@ -49,6 +50,7 @@
   --color-status-error: var(--color-error-default);
   --color-status-error-bg: var(--color-error-050);
   --color-status-warning: var(--color-warning-default);
+  --color-status-warning-bg: var(--color-warning-050);
 
   --color-border-default: var(--color-grayscale-100);
   --color-border-muted: var(--color-grayscale-050);

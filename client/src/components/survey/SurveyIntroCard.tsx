@@ -1,7 +1,7 @@
 import SurveyCourseHeader from "./SurveyCourseHeader";
 import SurveyMetaBadge from "./SurveyMetaBadge";
 import SLOStepper from "./SLOStepper";
-import AnonymousBadge from "./AnonymousBadge";
+import Badge from "../ui/Badge";
 
 import { Clock, ClipboardList } from 'lucide-react';
 
@@ -35,7 +35,7 @@ export default function SurveyIntroCard ({ onBegin }: Props) {
                 { label: "SLO 3", status: 'not_started'},
                 { label: "SLO 4", status: 'not_started'},
             ]} />
-            <AnonymousBadge />
+            <Badge variant="alert" title="100% Anonymous" body="Your responses are completely anonymous and cannot be linked to your identity or grades. No personal information is collected or stored."/>
             <button
                 onClick={onBegin}
                 className="w-full rounded-2xl bg-[var(--color-brand-primary)] px-6 py-4 font-semibold text-[var(--color-brand-primary-on-color)] shadow-sm hover:bg-[var(--color-brand-primary-hover)]">
