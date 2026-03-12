@@ -1,8 +1,10 @@
 import SurveyLayout from "../components/survey/SurveyLayout"
 import SurveySidebar from "../components/survey/SurveySidebar"
 import SurveyIntroSidebarContent from "../components/survey/SurveyIntroSideBarContent";
-import SurveyIntroCard from "../components/survey/SurveyIntroCard";
 import SurveySidebarContent from "../components/survey/SurveySidebarContent";
+import SurveyIntroCard from "../components/survey/SurveyIntroCard";
+import SurveyCalibration from "../components/survey/SurveyCalibration";
+
 import type { Step } from "../types/survey";
 
 import { useState } from 'react';
@@ -44,7 +46,7 @@ export default function StudentSurvey() {
 
     const mainContent = {
         "intro": <SurveyIntroCard/>,
-        "calibration": <div>Main Content Coming Soon!</div>,
+        "calibration": <SurveyCalibration/>,
         "slo-1": <div>Coming Soon</div>,
         "slo-2": <div>Coming Soon</div>,
         "slo-3": <div>Coming Soon</div>,
