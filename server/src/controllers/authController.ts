@@ -1,6 +1,6 @@
 //noe chairez 3/1132026
 
-import { Request, Reponse } from 'express';  
+import { Request, Response } from 'express';  
 import bcrypt from 'bcrypt';       //needed for hashing passwords
 import jwt from 'jsonwebtoken';    //needed to create and verify tokens
 import db from '../db';            //the db helper function
@@ -10,7 +10,7 @@ import db from '../db';            //the db helper function
 //REGISTER: handles POST /api/auth/register
 
 //creates new user in database 
-export async function register(re: Request, res: Respond) {
+export async function register(req: Request, res: Response): Promise<void> {
 
     //req.body contains JSON data sent from React form..
     const { email, password, role } = req.body;
@@ -23,7 +23,7 @@ export async function register(re: Request, res: Respond) {
 
     try {
         //check if user w/ this email already exsists in our Database...
-        const exsisting = await db.query(
+        const existing = await db.query(
             'SELECT id FROM users WHERE email = $1',      //note to self: $1 is placeholder 
             [email]                                       //email is what is being put in '$1'
         );
@@ -60,7 +60,7 @@ export async function register(re: Request, res: Respond) {
 
 
 //LOGIN: handles POST /api/auth/login  -->checks credentials and returns JWT token if everything checks out
-export async function login(req: Request, res:Response ) {
+export async function login(req: Request, res:Response ): Promise<void> {         
 
     //req.body contains the JSON data sent from React login 
     const { email, password } = req.body;
@@ -98,7 +98,7 @@ export async function login(req: Request, res:Response ) {
         //create a JWT token after being verified 
         const token = jwt.sign(
             { id: user.id, role: user.role },
-                ProcessingInstruction.env.JWT_SECRET as string,
+                process.env.JWT_SECRET as string,
             { expiresIn: '24h' }
         );
 
