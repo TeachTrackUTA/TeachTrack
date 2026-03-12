@@ -1,7 +1,5 @@
-import type { SLO } from "../../types/survey";
-import { SLO_DATA } from "../../data/sloData";
+import { SLO_DATA } from "../../data/surveyData";
 import SLOBadge from "./SLOBadge";
-import Badge from "../ui/Badge";
 import { ArrowRight } from "lucide-react";
 
 interface Props {

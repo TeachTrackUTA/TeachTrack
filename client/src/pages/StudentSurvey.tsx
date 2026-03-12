@@ -4,21 +4,13 @@ import SurveyIntroSidebarContent from "../components/survey/SurveyIntroSideBarCo
 import SurveySidebarContent from "../components/survey/SurveySidebarContent";
 import SurveyIntroCard from "../components/survey/SurveyIntroCard";
 import SurveyCalibration from "../components/survey/SurveyCalibration";
+import SurveyQuestion from "../components/survey/SurveyQuestion";
+import { SLO_DATA, COURSE_DATA, TOPIC_DATA, STUDENT_DATA } from "../data/surveyData";
 
 import type { Step } from "../types/survey";
 
 import { useState } from 'react';
 
-
-/* Temporary Mock Data */
-const SURVEY_DATA = {
-    courseCode: 'CSE 1310',
-    surveyTitle: 'CSE 1310 Student Learning Outcomes Survey',
-    description: 'This evaluation asks you to reflect on what you learned — not to rate your professor. Your honest self-assessment helps improve how this course is taught.',
-    userName: 'Quandale D.',
-    userRole: 'Computer Science Junior',
-    userAvatar: 'https://i.pravatar.cc/150?img=3',
-};
 
 const STEPS: { key: Step; label: string }[] = [
     { key: "calibration", label: "Setup" },
@@ -30,11 +22,16 @@ const STEPS: { key: Step; label: string }[] = [
     { key: "reflection", label: "Overall Reflection" },
 ];
 
+
+
 export default function StudentSurvey() {
-    const [currentStep, setCurrentStep] = useState<Step>("calibration");
+    const [currentStep, setCurrentStep] = useState<Step>("intro");
+    const sloKeys = ["slo-1", "slo-2", "slo-3", "slo-4"] as const;
+    const sloIndex = sloKeys.indexOf(currentStep as typeof sloKeys[number]);
+    const currentSLO = sloIndex >= 0 ? SLO_DATA[sloIndex] : null;
 
     const sidebarContent = {
-        "intro": <SurveyIntroSidebarContent surveyTitle={SURVEY_DATA.surveyTitle} description={SURVEY_DATA.description} />,
+        "intro": <SurveyIntroSidebarContent surveyTitle={COURSE_DATA.surveyTitle} description={COURSE_DATA.surveyDescription} />,
         "calibration": <SurveySidebarContent currentStep={currentStep} steps={STEPS} />,
         "slo-1": <SurveySidebarContent currentStep={currentStep} steps={STEPS} />,
         "slo-2": <SurveySidebarContent currentStep={currentStep} steps={STEPS} />,
@@ -45,12 +42,12 @@ export default function StudentSurvey() {
     }[currentStep];
 
     const mainContent = {
-        "intro": <SurveyIntroCard/>,
-        "calibration": <SurveyCalibration/>,
-        "slo-1": <div>Coming Soon</div>,
-        "slo-2": <div>Coming Soon</div>,
-        "slo-3": <div>Coming Soon</div>,
-        "slo-4": <div>Coming Soon</div>,
+        "intro": <SurveyIntroCard onBegin={ () => setCurrentStep("calibration")}/>,
+        "calibration": <SurveyCalibration onNext={ () => setCurrentStep("slo-1")}/>,
+        "slo-1": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("slo-2")} onPrev={() => setCurrentStep("calibration")} /> : null,
+        "slo-2": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("slo-3")} onPrev={() => setCurrentStep("slo-1")} /> : null,
+        "slo-3": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("slo-4")} onPrev={() => setCurrentStep("slo-2")} /> : null,
+        "slo-4": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("topic")} onPrev={() => setCurrentStep("slo-3")} /> : null,
         "topic": <div>Coming Soon</div>,
         "reflection": <div>Coming Soon</div>,
     }[currentStep];
@@ -59,10 +56,10 @@ export default function StudentSurvey() {
         <SurveyLayout
             sidebar={
                 <SurveySidebar
-                    courseCode={SURVEY_DATA.courseCode}
-                    userName={SURVEY_DATA.userName}
-                    userRole={SURVEY_DATA.userRole}
-                    userAvatar={SURVEY_DATA.userAvatar}
+                    courseCode={COURSE_DATA.courseCode}
+                    userName={STUDENT_DATA.userName}
+                    userRole={STUDENT_DATA.userRole}
+                    userAvatar={STUDENT_DATA.profile}
                     content={sidebarContent}
                 />
             }
