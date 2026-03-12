@@ -1,5 +1,5 @@
 import type { Step } from "../../types/survey";
-import AnonymousBadge from "./AnonymousBadge";
+import Badge from "../ui/Badge";
 import ProgressCircle from "../ui/ProgressCircle";
 import SurveyProgressItem from "./SurveyProgressItem";
 
@@ -15,7 +15,7 @@ export default function SurveySidebarContent({ currentStep, steps }: Props) {
     const percent = Math.round((completedCount / steps.length) * 100);
 
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-3">
             {/* Progess Circle */}
             <div className="flex justify-center">
                 <ProgressCircle
@@ -27,7 +27,7 @@ export default function SurveySidebarContent({ currentStep, steps }: Props) {
             {/* Survey Progess */}
             <div className="flex flex-col gap-3">
                 <span className="text-sm text-[var(--color-text-secondary)]">SURVEY PROGRESS</span>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2">
                     {steps.map((step, index) => (
                         <SurveyProgressItem
                             key={step.key}
@@ -40,7 +40,7 @@ export default function SurveySidebarContent({ currentStep, steps }: Props) {
             </div>
 
             {/* Anonymous Alert */}
-            <AnonymousBadge />
+            <Badge variant="success" body="Your responses are 100% anonymous and never linked to your identity or grades." />
             
         </div>
     );

@@ -8,7 +8,8 @@ export default function SurveyProgressItem ({label, isActive, isComplete}: Props
     return (
         <button 
             className={`flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left transition-colors ${
-                isActive ? 'bg-[var(--color-brand-primary-subtle)] text-[var(--color-brand-primary)]' : 'hover:bg-[var(--color-bg-subtle)]'
+                isActive ? 'bg-[var(--color-brand-primary-subtle)] text-[var(--color-brand-primary)]' 
+                : 'hover:bg-[var(--color-bg-subtle)]'
             }`}
         >
             <div 
