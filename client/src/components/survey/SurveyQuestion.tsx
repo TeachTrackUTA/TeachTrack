@@ -80,7 +80,7 @@ export default function SurveyQuestion({ slo, onNext, onPrev }: Props) {
 
                 {/* Open-Ended Section */}
                 <div className="flex flex-col rounded-xl bg-[var(--color-bg-default)] p-8 shadow-sm ring-1 ring-[var(--color-border-default)]">
-                    <SurveyOpenEnded prompt={slo.openEndedPrompt} />
+                    <SurveyOpenEnded prompt="Share your thoughts (Optional) " helperText={slo.openEndedPrompt} />
                 </div>
                 <div className="flex justify-between">
                     <div className="flex justify-start">
