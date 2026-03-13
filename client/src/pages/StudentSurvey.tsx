@@ -11,6 +11,7 @@ import { SLO_DATA, COURSE_DATA, TOPIC_DATA, STUDENT_DATA } from "../data/surveyD
 import type { Step } from "../types/survey";
 
 import { useState } from 'react';
+import SurveyReflection from "../components/survey/SurveyReflection";
 
 
 const STEPS: { key: Step; label: string }[] = [
@@ -26,7 +27,7 @@ const STEPS: { key: Step; label: string }[] = [
 
 
 export default function StudentSurvey() {
-    const [currentStep, setCurrentStep] = useState<Step>("topic");
+    const [currentStep, setCurrentStep] = useState<Step>("reflection");
     const sloKeys = ["slo-1", "slo-2", "slo-3", "slo-4"] as const;
     const sloIndex = sloKeys.indexOf(currentStep as typeof sloKeys[number]);
     const currentSLO = sloIndex >= 0 ? SLO_DATA[sloIndex] : null;
@@ -50,7 +51,7 @@ export default function StudentSurvey() {
         "slo-3": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("slo-4")} onPrev={() => setCurrentStep("slo-2")} /> : null,
         "slo-4": currentSLO ? <SurveyQuestion slo={currentSLO} onNext={ () => setCurrentStep("topic")} onPrev={() => setCurrentStep("slo-3")} /> : null,
         "topic": <SurveyTopicConfidence onNext={ () => setCurrentStep("reflection")}/>,
-        "reflection": <div>Coming Soon</div>,
+        "reflection": <SurveyReflection onNext={ () => setCurrentStep("review")} />,
     }[currentStep];
 
     return (

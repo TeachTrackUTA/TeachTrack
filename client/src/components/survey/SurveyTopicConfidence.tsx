@@ -16,7 +16,7 @@ export default function SurveyTopicConfidence( { onNext }: Props ) {
     return (
         <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-                <h2 className="text-3xl text-[var(--color-text-primar)]">Topic-Level Confidence</h2>
+                <h2 className="text-3xl text-[var(--color-text-primary)]">Topic-Level Confidence</h2>
                 <span className="text-[var(--color-text-secondary)]">Rate your confidence in each topic area covered in CSE 1310. Use the same 1—5 scale.</span>
             </div>
 

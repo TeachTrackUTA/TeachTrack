@@ -3,6 +3,8 @@ import SurveyMetaBadge from "./SurveyMetaBadge";
 import SLOStepper from "./SLOStepper";
 import Badge from "../ui/Badge";
 
+import { COURSE_DATA } from "../../data/surveyData";
+
 import { Clock, ClipboardList } from 'lucide-react';
 
 
@@ -10,19 +12,15 @@ interface Props {
     onBegin: () => void;
 }
 
-const SURVEY_DATA = {
-    semester: "Spring 2026 | Section 003",
-    courseTitle: "CSE 1310 - Intro to Computers & Programming",
-    instructor: "Professor Donna French"
-};
-
 export default function SurveyIntroCard ({ onBegin }: Props) {
     return (
         <div className="w-full max-w-[800px] space-y-6 rounded-2xl bg-[var(--color-bg-default)] p-8 shadow-md">
             <SurveyCourseHeader
-                semester={SURVEY_DATA.semester}
-                courseTitle={SURVEY_DATA.courseTitle}
-                instructor={SURVEY_DATA.instructor}
+                semester={COURSE_DATA.semester}
+                section={COURSE_DATA.section}
+                courseTitle={COURSE_DATA.courseName}
+                courseNumber={COURSE_DATA.courseCode}
+                instructor={COURSE_DATA.professor.name}
             />
             <hr className="border-[var(--color-border-default)]" />
             <div className="flex gap-3">

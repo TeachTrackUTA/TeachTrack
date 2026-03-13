@@ -186,3 +186,38 @@ export const TOPIC_DATA: { category: string; topics: Topic[] }[] = [
         ],
     },
 ];
+
+// ─── REFLECTION DATA ────────────────────────────────────────────────────
+// TODO: Replace with API response — GET /api/surveys/:surveyId/reflection
+
+export const REFLECTION_DATA = {
+    preparednessScale: [
+        { value: 1, label: "Not Prepared" },
+        { value: 2, label: "" },
+        { value: 3, label: "Somewhat Prepared" },
+        { value: 4, label: "Considerably" },
+        { value: 5, label: "Well Prepared" }
+    ],
+    leastConfidentAreas: [
+        "ASCII values and character relationships",
+        "Number system conversions (binary, octal, hex, decimal)",
+        "Basic UNIX commands and command-line compilation",
+        "Variables, data types, and type casting",
+        "Formatted I/O (printf and scanf)",
+        "Operators and operator precedence",
+        "Preprocessor directives (#include, #define)",
+        "Debugging strategies (compiler errors, logic errors)",
+        "Selection structures (if, if-else, switch)",
+        "Functions (defining, calling, scope, parameters)",
+        "Arrays (1D and 2D — declare, initialize, search, pass to functions)",
+        "File handling (fopen, fclose, fprintf, fscanf, fgets)"
+    ],
+    changeForLearning: {
+        prompt: "What is one specific change that would have helped you learn more effectively in this course?",
+        helperText: "Be specific — for example, 'More in-class practice with nested loops' is more helpful than 'better teaching.'"
+    },
+    valuableLearning: {
+        prompt: "What was the single most valuable thing you learned in this course?",
+        helperText: "Think beyond just code — it could be a problem-solving approach, debugging mindset, etc."
+    }
+};
